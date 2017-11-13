@@ -4,13 +4,13 @@
     "from":
     {
       "id":1,
-      "Name":"Meditech - St Mary Elizabeth",
-      "srcCode":"MED_SME"
+      "Name":"AAA Lab",
+      "srcCode":"AAA"
     },
     "to":{
       "id":2,
-      "Name":"Touchworks East",
-      "srcCode":"TW_EST"
+      "Name":"BBB Lab",
+      "srcCode":"BBB"
     },
     "mapId":1,
     "data": []
@@ -20,13 +20,13 @@
     "from":
     {
       "id":1,
-      "Name":"Brandon MS4 - MS4OC",
-      "srcCode":"B_MS4OC"
+      "Name":"CCC Lab",
+      "srcCode":"CCC"
     },
     "to":{
       "id":2,
-      "Name":"Meditech - St Mary Elizabeth",
-      "srcCode":"MED_SME"
+      "Name":"AAA Lab",
+      "srcCode":"AAA"
     },
     "mapId":4,
     "data": []
@@ -35,13 +35,13 @@
     "label":"",
     "from":{
       "id":1,
-      "Name":"Brandon MS4 - MS4OC",
-      "srcCode":"B_MS4OC"
+      "Name":"CCC Lab",
+      "srcCode":"CCC"
     },
     "to":{
       "id":2,
-      "Name":"Cerner - Jewish Medical Center",
-      "srcCode":"CERNER_MCE"
+      "Name":"DDD Lab",
+      "srcCode":"DDD"
     },
     "mapId":2,
     "data": []
@@ -50,13 +50,13 @@
     "label":"",
     "from":{
       "id":1,
-      "Name":"Touchworks East",
-      "srcCode":"TW_EST"
+      "Name":"BBB Lab",
+      "srcCode":"BBB"
     },
     "to":{
       "id":2,
-      "Name":"Brandon MS4 - MS4OC",
-      "srcCode":"B_MS4OC"
+      "Name":"CCC Lab",
+      "srcCode":"CCC"
     },
     "mapId":3,
     "data": []
