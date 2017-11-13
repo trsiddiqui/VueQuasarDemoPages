@@ -1,0 +1,26 @@
+.q-card {
+  margin-bottom: 0px;
+  width: 300px;
+}
+
+.card-content {
+  min-height: 160px;
+}
+
+button {
+  margin-bottom: 4%;
+}
+
+h4 {
+  font-weight: 300;
+}
+/****************IE Fixes Start*******************/
+_:-ms-fullscreen, :root .q-btn-rectangle {
+  min-width: 110px;
+  padding: 6px;
+}
+
+_:-ms-fullscreen, :root .q-toast-message {
+  min-width: 300px;
+}
+/****************IE Fixes End*******************/

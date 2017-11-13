@@ -1,0 +1,64 @@
+[
+  {
+    "label":"",
+    "from":
+    {
+      "id":1,
+      "Name":"Meditech - St Mary Elizabeth",
+      "srcCode":"MED_SME"
+    },
+    "to":{
+      "id":2,
+      "Name":"Touchworks East",
+      "srcCode":"TW_EST"
+    },
+    "mapId":1,
+    "data": []
+  },
+  {
+    "label":"",
+    "from":
+    {
+      "id":1,
+      "Name":"Brandon MS4 - MS4OC",
+      "srcCode":"B_MS4OC"
+    },
+    "to":{
+      "id":2,
+      "Name":"Meditech - St Mary Elizabeth",
+      "srcCode":"MED_SME"
+    },
+    "mapId":4,
+    "data": []
+  },
+  {
+    "label":"",
+    "from":{
+      "id":1,
+      "Name":"Brandon MS4 - MS4OC",
+      "srcCode":"B_MS4OC"
+    },
+    "to":{
+      "id":2,
+      "Name":"Cerner - Jewish Medical Center",
+      "srcCode":"CERNER_MCE"
+    },
+    "mapId":2,
+    "data": []
+  },
+  {
+    "label":"",
+    "from":{
+      "id":1,
+      "Name":"Touchworks East",
+      "srcCode":"TW_EST"
+    },
+    "to":{
+      "id":2,
+      "Name":"Brandon MS4 - MS4OC",
+      "srcCode":"B_MS4OC"
+    },
+    "mapId":3,
+    "data": []
+  }
+]

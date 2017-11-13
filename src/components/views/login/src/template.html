@@ -1,0 +1,63 @@
+<div class="flex justify-center full-height" :class="heightSize">
+  <span id="content-header-title" class="vertical-bottom"></span>
+  <div class="layout-padding row justify-center">
+    <q-card inline>
+      <q-list separator>
+        <q-collapsible icon="vpn_key" label="Login" group="login" opened>
+          <div class="row">
+            <div class="col-12">
+              <q-input v-model="email" placeholder="Login ID" :error="$v.email.$invalid"></q-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <q-input v-model="password" placeholder="Password" type="password" :error="$v.password.$invalid"></q-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <q-btn push icon="close" color="secondary" @click="clear">Clear</q-btn>
+            </div>
+            <div class="col"></div>
+            <div class="col-5">
+              <q-btn push icon-right="arrow_forward" color="primary" @click="login">Login</q-btn>
+            </div>
+          </div>
+        </q-collapsible>
+
+        <!--<q-collapsible icon="person_add" label="Register" group="login">
+          <div class="row">
+            <div class="col-12">
+              <q-input v-model="email" placeholder="Login ID"></q-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <q-input v-model="password" placeholder="Password" type="password"></q-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-5">
+              <q-btn icon-right="arrow_forward">Register</q-btn>
+            </div>
+          </div>
+        </q-collapsible>-->
+
+        <q-collapsible icon="fa-question" label="Forgot Password" group="login">
+          <div class="row">
+            <div class="col-12">
+              <q-input v-model="email" placeholder="Login ID"></q-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-6">
+              <q-btn push color="primary" icon-right="arrow_forward">Email Me</q-btn>
+            </div>
+          </div>
+        </q-collapsible>
+      </q-list>
+    </q-card>
+  </div>
+</div>

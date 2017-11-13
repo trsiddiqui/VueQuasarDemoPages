@@ -1,0 +1,98 @@
+/*START - DO NOT REMOVE, PUT TO KEEP THE FIXED POSITION HEADER SAME AS THE NORMAL HEADER OF REQUISITION TABLE*/
+.table-custom-title {
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 38px;
+  margin-left: -26px;
+}
+
+.fixedRow {
+  position: fixed;
+  top: 120px;
+  background: white;
+  z-index: 1;
+  width: 100%;
+  padding-right: 105px;
+  margin-left: -16px;
+}
+
+.fixedPatientRow {
+  position: fixed;
+  top: 60px;
+  z-index: 2;
+  width: 100%;
+  background: white;
+}
+
+.right-align {
+  text-align: right;
+}
+
+/*END - DO NOT REMOVE, PUT TO KEEP THE FIXED POSITION HEADER SAME AS THE NORMAL HEADER OF REQUISITION TABLE*/
+.q-collapsible {
+  background: #eaeaea;
+}
+
+.q-collapsible-sub-item {
+  background: white;
+}
+/****************IE Fixes Start*******************/
+_:-ms-fullscreen, :root .q-btn-rectangle {
+  min-width: 110px;
+  padding: 6px;
+}
+
+_:-ms-fullscreen, :root .q-toast-message {
+  min-width: 300px;
+}
+/****************IE Fixes End*******************/
+.items-right {
+  display: flex;
+  justify-content: flex-end
+}
+
+.floatover {
+  float: right;
+  margin: -38px 23px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 18px;
+}
+.fixed-top-right {
+  z-index: 3;
+}
+
+.fixedRowSupporter {
+  position: inherit;
+}
+
+.fixedContainer {
+  position: fixed;
+  z-index: 2;
+}
+
+.mapping-icon-middle-fix {
+  margin-left: 18px;
+}
+
+#mappingContainer .q-item {
+  background: #a1a1a1;
+  color: white;
+}
+
+  #mappingContainer .q-item:hover {
+    background: #dedede;
+    color: black;
+  }
+
+.q-input {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+#mappingContainer input.q-input-target {
+  font-size: 13.5px;
+}

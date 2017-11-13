@@ -1,0 +1,122 @@
+[
+ {
+   "fromCode": "GL00017",
+   "fromDescription": "WBC",
+   "toCode": "85025.Z1",
+   "toDescription": "White Blood Cells",
+   "type": "labcode",
+   "mappingId": 1
+ },
+ {
+   "fromCode": "GL00018",
+   "fromDescription": "RBC",
+   "toCode": "85025.Z2",
+   "toDescription": "Red Blood Cells",
+   "type": "labcode",
+   "mappingId": 2
+ },
+ {
+   "fromCode": "GL00020",
+   "fromDescription": "Hgb",
+   "toCode": "85025.Z3",
+   "toDescription": "Hemoglobin",
+   "type": "labcode",
+   "mappingId": 3
+ },
+ {
+   "fromCode": "GL00019",
+   "fromDescription": "Hct",
+   "toCode": "85025.Z4",
+   "toDescription": "Hematocrit",
+   "type": "labcode",
+   "mappingId": 4
+ },
+ {
+   "fromCode": "GL00024",
+   "fromDescription": "MCV",
+   "toCode": "85025.Z5",
+   "toDescription": "MCV",
+   "type": "labcode",
+   "mappingId": 5
+ },
+ {
+   "fromCode": "GL00022",
+   "fromDescription": "MCH",
+   "toCode": "85025.Z6",
+   "toDescription": "MCH",
+   "type": "labcode",
+   "mappingId": 6
+ },
+ {
+   "fromCode": "GL00023",
+   "fromDescription": "MCHC",
+   "toCode": "85025.Z7",
+   "toDescription": "MCHC",
+   "type": "labcode",
+   "mappingId": 7
+ },
+ {
+   "fromCode": "GL00897",
+   "fromDescription": "RDW",
+   "toCode": "85025.Z8",
+   "toDescription": "RDW",
+   "type": "labcode",
+   "mappingId": 8
+ },
+ {
+   "fromCode": "GL00021",
+   "fromDescription": "Platelet Count",
+   "toCode": "85025.Z9",
+   "toDescription": "Platelets",
+   "type": "labcode",
+   "mappingId": 9
+ },
+  {
+    "fromCode": "GL01265",
+    "fromDescription": "MPV",
+    "toCode": "85021.Z10",
+    "toDescription": "MPV",
+    "type": "labcode",
+    "mappingId": 10
+  },
+ {
+   "fromCode": "GL01304",
+   "fromDescription": "nRBC",
+   "toCode": "85007.Z29",
+   "toDescription": "Nucleated RBCs",
+   "type": "labcode",
+   "mappingId": 11
+ },
+ {
+   "fromCode": "GL01034",
+   "fromDescription": "Neut %",
+   "toCode": "NEUT%",
+   "toDescription": "NEUTROPHIL%",
+   "type": "labcode",
+   "mappingId": 12
+ },
+ {
+   "fromCode": "GL01155",
+   "fromDescription": "Lymhp %",
+   "toCode": "LY%",
+   "toDescription": "LYMPHOCYTE%",
+   "type": "labcode",
+   "mappingId": 13
+ },
+ {
+   "fromCode": "GL00733",
+   "fromDescription": "Mono %",
+   "toCode": "MO%",
+   "toDescription": "MONOCYTE%",
+   "type": "labcode",
+   "mappingId": 14
+ },
+ {
+   "fromCode": "GL00550",
+   "fromDescription": "EOS %",
+   "toCode": "EOS%",
+   "toDescription": "EOSINOPHIL%",
+   "type": "labcode",
+   "mappingId": 15
+ }
+]

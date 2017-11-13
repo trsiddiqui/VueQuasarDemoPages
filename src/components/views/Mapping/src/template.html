@@ -1,0 +1,102 @@
+<div>
+  <div class="card">
+    <div class="card-content">
+      <div class="flex row">
+        <div class="col">
+          <q-search v-model="labSearchText" chips placeholder="Lab (start typing to load suggestions)" @blur="emptyIfNotExists(labSearchText)">
+            <q-autocomplete :static-data="{field: 'value', list: allLabs}"
+                            @selected="selectedLab" />
+          </q-search>
+        </div>
+      </div>
+      <div class="flex row">
+        <div class="col-6">
+          <q-select multiple
+                    filter
+                    inverted
+                    chips
+                    float-label="Source"
+                    color="info"
+                    v-model="selectedLabsFrom"
+                    :options="labOptionsFrom" />
+        </div>
+        <div class="col"></div>
+        <div class="col-6">
+          <q-select multiple
+                    filter
+                    inverted
+                    chips
+                    float-label="Destination"
+                    color="tertiary"
+                    v-model="selectedLabsTo"
+                    :options="labOptionsTo" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <q-card flat>
+    <div class="row">
+      <div class="col justify-end self-center items-right">
+        <q-toggle checked-icon="fa-pencil" unchecked-icon="fa-eye" v-model="editMode" color="primary">
+        </q-toggle>
+      </div>
+    </div>
+  </q-card>
+  <div class="card" id="mappingContainer">
+    <q-list separator ref="container">
+      <q-collapsible group="mapping" :label="map.label" v-for="(map, index) in mappings" :key="index" class="collapsible-no-padding requisitionContainer" @open="getMap(map)" @close="closeMap(map)" :id='map.mapId' color='tertiary' ref="mappings">
+
+
+        <div class="row">
+          <div class="col justify-end self-center items-right">
+            <q-btn @click="AddRow(map)" icon="fa-plus" color="primary">Add</q-btn>
+          </div>
+        </div>
+
+        <q-data-table :data="map.data"
+                      :config="mappingConfigs"
+                      :columns="mappingColumns"
+                      ref="mappingsData">
+          <template slot="col-fromCode" scope="cell">
+            <q-input v-model="map.data[cell.row.__index].fromCode" v-if="editMode"></q-input>
+            <label v-if="!editMode">{{cell.data}}</label>
+          </template>
+          <template slot="col-fromDescription" scope="cell">
+            <q-input v-model="map.data[cell.row.__index].fromDescription" v-if="editMode"></q-input>
+            <label v-if="!editMode">{{cell.data}}</label>
+          </template>
+          <template slot="col-toCode" scope="cell">
+            <q-input v-model="map.data[cell.row.__index].toCode" v-if="editMode"></q-input>
+            <label v-if="!editMode">{{cell.data}}</label>
+          </template>
+          <template slot="col-toDescription" scope="cell">
+            <q-input v-model="map.data[cell.row.__index].toDescription" v-if="editMode"></q-input>
+            <label v-if="!editMode">{{cell.data}}</label>
+          </template>
+          <template slot="col-type" scope="cell">
+            <q-input v-model="map.data[cell.row.__index].type" v-if="editMode"></q-input>
+            <label v-if="!editMode">{{cell.data}}</label>
+          </template>
+          <template slot="col-mappingId" scope="cell">
+            <q-btn flat color="primary" @click="deleteRow(map, cell)">
+              <q-icon name="delete" />
+            </q-btn>
+          </template>
+          <template slot="selection" scope="cell">
+            <q-btn flat color="primary" @click="deleteRow(map, cell.rows)">
+              <q-icon name="delete" />
+            </q-btn>
+          </template>
+        </q-data-table>
+      </q-collapsible>
+    </q-list>
+  </div>
+  <q-fixed-position corner="bottom-right" :offset="[18, 18]">
+    <q-btn round color="primary" icon="save" class="animate-pop" :disabled="saveDisabled"></q-btn>
+    <q-tooltip>Update</q-tooltip>
+  </q-fixed-position>
+  <q-fixed-position corner="bottom-left" :offset="[18, 18]">
+    <q-btn round color="primary" icon="fa-upload" class="animate-pop"></q-btn>
+    <q-tooltip>Import</q-tooltip>
+  </q-fixed-position>
+</div>
