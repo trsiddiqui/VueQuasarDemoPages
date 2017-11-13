@@ -10,10 +10,9 @@
           <div class="row xs-gutter">
             <div class="col-auto self-center">
               <button class="hidebtn hidden" @click="$refs.layout.toggleLeft()">...</button>
-              <img :src="'statics/logo.png'" alt="LogoImageAlt" id="logo">
             </div>
             <div class="col-auto">
-              <h5>Order Queue Management</h5>
+              <h5>First Vue App</h5>
             </div>
           </div>
         </q-toolbar-title>

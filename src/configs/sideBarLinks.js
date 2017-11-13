@@ -1,9 +1,4 @@
 export var groupedLinksAuthorized = {
-  Requisitions: {
-    routes: [
-      { routeName: 'ReleaseManager', icon: 'fa fa-list-alt', materialIcon: 'list_compact', name: 'Order Release Manager' }
-    ]
-  },
   Mappings: {
     routes: [
       { routeName: 'CodeManager', icon: 'fa fa-list-alt', materialIcon: 'list_compact', name: 'Test Codes Manager' }
