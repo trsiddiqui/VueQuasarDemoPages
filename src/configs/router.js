@@ -10,9 +10,8 @@ function load (component) {
 
 export default new Router({
   routes: [
-    { path: '/', beforeEnter: requireAuth, component: load('views/dashboard/one/dashboard'), meta: { name: 'Dashboard One' }, name: 'dash-one' },
-    { path: '/login', component: load('views/login/login'), meta: { name: 'Login' }, name: 'login' },
-    { path: '/CodeManager', beforeEnter: requireAuth, component: load('views/Mapping/CodeManager'), meta: { name: 'Test Codes Manager' }, name: 'CodeManager' },
+    { path: '/', beforeEnter: requireAuth, component: load('views/Mapping/CodeManager'), meta: { name: 'Vue Editable Grid' }, name: 'dash-one' },
+    { path: '/CodeManager', beforeEnter: requireAuth, component: load('views/Mapping/CodeManager'), meta: { name: 'Vue Editable Grid' }, name: 'CodeManager' },
     { path: '*', component: load('Error404') } // Not found
   ]
 })

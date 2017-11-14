@@ -54,6 +54,7 @@ import { GlobalEventBus } from '@/utils/globalevents.js'
 export default {
   name: 'index',
   components: {
+    Alert,
     QAutocomplete,
     QCheckbox,
     QAlert,
@@ -115,7 +116,7 @@ export default {
         { label: 'From Description', field: 'fromDescription', width: '100px', sort (a, b) { return (a > b) - (a < b) } },
         { label: 'To Code', field: 'toCode', width: '60px', sort (a, b) { return (a > b) - (a < b) } },
         { label: 'To Description', field: 'toDescription', width: '100px', sort (a, b) { return (a > b) - (a < b) } },
-        { label: 'Type', field: 'type', width: '80px', sort (a, b) { return (a > b) - (a < b) } },
+        { label: 'Type', field: 'type', width: '40px', sort (a, b) { return (a > b) - (a < b) } },
         { label: 'Delete', field: 'mappingId', width: '30px' }
       ],
       mappingConfigs: {
@@ -127,8 +128,7 @@ export default {
         pagination: {
           rowsPerPage: 5,
           options: [5, 10, 15, 30, 50, 500]
-        },
-        selection: 'multiple'
+        }
       }
     }
   },
@@ -179,7 +179,14 @@ export default {
       }
     },
     AddRow (map) {
-      map.data.unshift({})
+      map.data.unshift({
+        fromCode: '',
+        toCode: '',
+        fromDescription: '',
+        toDescription: '',
+        type: '',
+        mappingId: Math.max.apply(Math, map.data.map(function (ele) { return ele.mappingId })) + 1
+      })
       this.editMode = true
     },
     deleteRow (map, cell) {
@@ -267,7 +274,6 @@ export default {
       this.filterMappings()
     },
     mappings (value) {
-      debugger
     }
   }
 }
