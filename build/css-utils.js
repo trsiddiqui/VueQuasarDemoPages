@@ -68,12 +68,12 @@ function getSize (size) {
 }
 
 module.exports.purify = function(cb) {
-  var css = glob.sync(path.join(__dirname, '../dist/**/*.css'))
-  var js = glob.sync(path.join(__dirname, '../dist/**/*.js'))
+  var css = glob.sync(path.join(__dirname, '../docs/**/*.css'))
+  var js = glob.sync(path.join(__dirname, '../docs/**/*.js'))
 
   Promise.all(css.map(function (file) {
     return new Promise(function (resolve) {
-      console.log('\n Purifying ' + path.relative(path.join(__dirname, '../dist'), file).bold + '...')
+      console.log('\n Purifying ' + path.relative(path.join(__dirname, '../docs'), file).bold + '...')
       purify(js, [file], {minify: true}, function (purified) {
         var oldSize = fs.statSync(file).size
         fs.writeFileSync(file, purified)
