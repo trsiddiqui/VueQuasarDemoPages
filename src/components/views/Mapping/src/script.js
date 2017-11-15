@@ -54,7 +54,6 @@ import { GlobalEventBus } from '@/utils/globalevents.js'
 export default {
   name: 'index',
   components: {
-    Alert,
     QAutocomplete,
     QCheckbox,
     QAlert,
