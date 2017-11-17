@@ -96,3 +96,16 @@ _:-ms-fullscreen, :root .q-toast-message {
 #mappingContainer input.q-input-target {
   font-size: 13.5px;
 }
+
+#fileDropBox {
+  line-height: 10em;
+  border: 1px dashed gray;
+  text-align: center;
+  color: gray;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.q-if-label-above {
+  top: 15px !important;
+}

@@ -86,12 +86,33 @@
       </q-collapsible>
     </q-list>
   </div>
+
+  <q-modal ref="basicModal" :content-css="{padding: '50px', minWidth: '32vw'}" @close="modalClosed()" @escape-key="modalClosed()">
+    <q-tabs color="secondary" align="justify">
+      <q-tab default name="upload" slot="title" icon="fa-upload" label="Upload CSV" />
+      <q-tab name="paste" slot="title" icon="fa-clipboard" label="Paste CSV" />
+      <q-tab-pane name="paste">
+        <q-input v-model="pastedCsv" type="textarea" />
+      </q-tab-pane>
+      <q-tab-pane name="upload">
+        <div class="card">
+          <div id="fileDropBox" @dragover="dragOver" @drop="handleFileDrop" @click="emulateButtonClick">Drop files here.</div>
+        </div>
+        <input id="fileInput" type="file" multiple accept=".csv" @change="handleFileSelection" class="q-input-target hidden" />
+      </q-tab-pane>
+    </q-tabs>
+    <div class="row">
+      <div class="col"></div>
+      <q-btn color="primary" flat="" @click="this.closeModal" class="justify-end">
+        Close
+      </q-btn></div>
+  </q-modal>
+  <q-fixed-position corner="bottom-left" :offset="[18, 18]">
+    <q-btn round color="primary" icon="fa-upload" class="animate-pop" @click="openModal"></q-btn>
+    <q-tooltip>Import</q-tooltip>
+  </q-fixed-position>
   <q-fixed-position corner="bottom-right" :offset="[18, 18]">
     <q-btn round color="primary" icon="save" class="animate-pop" :disabled="saveDisabled"></q-btn>
     <q-tooltip>Update</q-tooltip>
-  </q-fixed-position>
-  <q-fixed-position corner="bottom-left" :offset="[18, 18]">
-    <q-btn round color="primary" icon="fa-upload" class="animate-pop"></q-btn>
-    <q-tooltip>Import</q-tooltip>
   </q-fixed-position>
 </div>

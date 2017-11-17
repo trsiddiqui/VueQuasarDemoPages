@@ -1,4 +1,8 @@
 import {
+  QUploader,
+  QTabs,
+  QTab,
+  QTabPane,
   Alert,
   QCheckbox,
   QAlert,
@@ -42,7 +46,7 @@ import {
   QLabel,
   Toast
 } from 'quasar'
-// import jQuery from 'jquery'
+import jQuery from 'jquery'
 // import { required } from 'vuelidate/lib/validators'
 import mappings from './mappings.json'
 import data from './data.json'
@@ -54,6 +58,10 @@ import { GlobalEventBus } from '@/utils/globalevents.js'
 export default {
   name: 'index',
   components: {
+    QUploader,
+    QTabs,
+    QTab,
+    QTabPane,
     QAutocomplete,
     QCheckbox,
     QAlert,
@@ -94,13 +102,15 @@ export default {
     QSpinnerRadio,
     QSpinnerHourglass,
     QLabel,
-    Toast
+    Toast,
+    jQuery
     // required
   },
   validations: {
   },
   data () {
     return {
+      pastedCsv: '',
       editMode: false,
       data: data,
       mappings: [],
@@ -190,6 +200,78 @@ export default {
     },
     deleteRow (map, cell) {
       map.data = map.data.filter(function (ele) { return ele.mappingId !== cell.data })
+    },
+    modalClosed () {
+      setTimeout(function () {
+        if (jQuery('.modal:visible').length > 0) {
+          jQuery('.modal:visible').hide()
+        }
+      }, 1)
+    },
+    openModal () {
+      this.$refs.basicModal.open()
+      window.setTimeout(function () {
+        var mod = jQuery('.modal:visible')
+        if (mod.length === 0) {
+          jQuery('.modal').show()
+        }
+      }, 100)
+    },
+    handleFileSelection (evt) {
+      var files = evt.target.files // The files selected by the user (as a FileList object).
+
+      if (!files) {
+        alert('<p>At least one selected file is invalid - do not select any folders.</p><p>Please reselect and try again.</p>')
+        return
+      }
+      console.log(window.URL.createObjectURL(evt.target.files[0])) // Assumes "file" is some sort of graphics file type.
+      console.log(evt.target.files[0].name)
+      this.processFile(evt.target.files[0])
+    }, // handleFileSelection
+    dragOver (evt) {
+      evt.stopPropagation()
+      evt.preventDefault()
+    },
+    handleFileDrop (evt) {
+      evt.stopPropagation() // Do not allow the drop event to bubble.
+      evt.preventDefault() // Prevent default drop event behavior.
+
+      var files = evt.dataTransfer.files // Grab the list of files dragged to the drop box.
+
+      if (!files) {
+        alert('<p>At least one selected file is invalid - do not select any folders.</p><p>Please reselect and try again.</p>')
+        return
+      }
+
+      // "files" is a FileList of file objects. List a few file object properties:
+      for (var i = 0; i < files.length; i++) {
+        try {
+          this.processFile(files[i]) // If anything goes awry, the error would occur here.
+        } // try
+        catch (fileError) {
+          alert('<p>An unspecified file error occurred.</p><p>Selecting one or more folders will cause a file error.</p>');
+          console.log('The following error occurred at i = ' + i + ': ' + fileError) // Send the error object to the browser's debugger console window, if active.
+          return
+        } // catch
+      } // for
+    },
+    processFile (file) {
+      var reader = new FileReader()
+      reader.onload = function (event) {
+        console.log(event.target.result)
+      }
+      reader.readAsText(file)
+    },
+    emulateButtonClick () {
+      document.getElementById('fileInput').click()
+    },
+    closeModal () {
+      this.$refs.basicModal.close()
+      setTimeout(function () {
+        if (jQuery('.modal:visible').length > 0) {
+          jQuery('.modal:visible').hide()
+        }
+      }, 1)
     }
   },
   mounted () {
@@ -219,7 +301,7 @@ export default {
       return list
     },
     labOptionsTo () {
-      var list = []
+      let list = []
       for (var index = 0; index < mappings.length; index++) {
         var exists = list.find(function (ele) {
           return ele.label === mappings[index].to.Name
@@ -271,8 +353,6 @@ export default {
     },
     selectedLabsTo () {
       this.filterMappings()
-    },
-    mappings (value) {
     }
   }
 }
